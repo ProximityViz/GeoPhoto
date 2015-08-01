@@ -1,5 +1,5 @@
 //
-//  LayoutVC.swift
+//  CreateVC.swift
 //  GeoPhoto
 //
 //  Created by Mollie on 8/1/15.
@@ -9,7 +9,7 @@
 import UIKit
 import MapKit
 
-class LayoutVC: UIViewController, MKMapViewDelegate {
+class CreateVC: UIViewController, MKMapViewDelegate {
     
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var titleButton: UIButton!
@@ -43,6 +43,7 @@ class LayoutVC: UIViewController, MKMapViewDelegate {
         
         titleLabel.text = Image.sharedInstance.title
         titleLabel.font = UIFont(name: Image.sharedInstance.font, size: 42.0)
+        println(titleLabel.font)
         toggleButtonTitle(titleButton, buttonShownText: "Choose Title", hide: Image.sharedInstance.title != "")
         
         photoImageView.image = Image.sharedInstance.image

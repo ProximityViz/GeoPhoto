@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="NMA-bf-dpl">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="cRT-lU-kjT">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
@@ -94,12 +94,31 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PR1-Oy-d5L" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2382" y="372"/>
+            <point key="canvasLocation" x="989" y="-378"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--Tab Bar Controller-->
+        <scene sceneID="tfN-yj-dHh">
+            <objects>
+                <tabBarController id="cRT-lU-kjT" sceneMemberID="viewController">
+                    <nil key="simulatedBottomBarMetrics"/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" id="U5D-q8-v8m">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="NMA-bf-dpl" kind="relationship" relationship="viewControllers" id="yjh-h0-Eev"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="oBn-ce-oKU" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1138" y="-378"/>
+        </scene>
+        <!--Create-->
         <scene sceneID="DhG-RR-Qb5">
             <objects>
                 <navigationController id="NMA-bf-dpl" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Create" id="0D1-PH-TC8"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="uxW-5f-dHj">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -112,10 +131,10 @@
             </objects>
             <point key="canvasLocation" x="-422" y="-378"/>
         </scene>
-        <!--Title-->
+        <!--Create-->
         <scene sceneID="rNQ-Cs-Df6">
             <objects>
-                <viewController id="qxN-04-3mw" customClass="LayoutVC" customModule="GeoPhoto" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="qxN-04-3mw" customClass="CreateVC" customModule="GeoPhoto" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="al4-fK-42e"/>
                         <viewControllerLayoutGuide type="bottom" id="l64-rH-Zqh"/>
@@ -191,9 +210,10 @@
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="Bhx-xi-z4b">
-                                        <rect key="frame" x="16" y="16" width="536" height="0.0"/>
+                                        <rect key="frame" x="16" y="16" width="536" height="51"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="100" id="QB4-N4-ueA"/>
+                                            <constraint firstAttribute="height" constant="51" id="iKl-R4-ePp"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="42"/>
                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -271,7 +291,7 @@
                             </mask>
                         </variation>
                     </view>
-                    <navigationItem key="navigationItem" title="Title" id="o81-1r-LCG">
+                    <navigationItem key="navigationItem" title="Create" id="o81-1r-LCG">
                         <barButtonItem key="leftBarButtonItem" image="layout" style="plain" id="hto-wd-k23">
                             <connections>
                                 <action selector="layoutButtonTapped:" destination="qxN-04-3mw" id="8eZ-iG-CMB"/>

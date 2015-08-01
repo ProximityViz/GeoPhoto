@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		ECA0A7EB1B6C6F82005F318F /* Text.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ECA0A7E91B6C6F82005F318F /* Text.storyboard */; };
 		ECA0A7ED1B6C7037005F318F /* TextVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECA0A7EC1B6C7037005F318F /* TextVC.swift */; };
-		ECA0A7EF1B6C8C42005F318F /* LayoutVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECA0A7EE1B6C8C42005F318F /* LayoutVC.swift */; };
+		ECA0A7EF1B6C8C42005F318F /* CreateVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECA0A7EE1B6C8C42005F318F /* CreateVC.swift */; };
 		ECA31C351B6C044C00D23B5A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECA31C341B6C044C00D23B5A /* AppDelegate.swift */; };
 		ECA31C3A1B6C044C00D23B5A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ECA31C381B6C044C00D23B5A /* Main.storyboard */; };
 		ECA31C3C1B6C044C00D23B5A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ECA31C3B1B6C044C00D23B5A /* Images.xcassets */; };
@@ -34,7 +34,7 @@
 		ECA0A7E71B6C4E58005F318F /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		ECA0A7EA1B6C6F82005F318F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = GeoPhoto/Base.lproj/Text.storyboard; sourceTree = "<group>"; };
 		ECA0A7EC1B6C7037005F318F /* TextVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextVC.swift; sourceTree = "<group>"; };
-		ECA0A7EE1B6C8C42005F318F /* LayoutVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LayoutVC.swift; sourceTree = "<group>"; };
+		ECA0A7EE1B6C8C42005F318F /* CreateVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateVC.swift; sourceTree = "<group>"; };
 		ECA31C2F1B6C044C00D23B5A /* GeoPhoto.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GeoPhoto.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ECA31C331B6C044C00D23B5A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		ECA31C341B6C044C00D23B5A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -91,7 +91,7 @@
 			children = (
 				ECA31C581B6C1FF300D23B5A /* Image.swift */,
 				ECA31C341B6C044C00D23B5A /* AppDelegate.swift */,
-				ECA0A7EE1B6C8C42005F318F /* LayoutVC.swift */,
+				ECA0A7EE1B6C8C42005F318F /* CreateVC.swift */,
 				ECA31C541B6C065300D23B5A /* PhotoVC.swift */,
 				ECA31C561B6C1F8E00D23B5A /* MapVC.swift */,
 				ECA31C381B6C044C00D23B5A /* Main.storyboard */,
@@ -235,7 +235,7 @@
 				ECA31C351B6C044C00D23B5A /* AppDelegate.swift in Sources */,
 				ECA31C571B6C1F8E00D23B5A /* MapVC.swift in Sources */,
 				ECA31C551B6C065300D23B5A /* PhotoVC.swift in Sources */,
-				ECA0A7EF1B6C8C42005F318F /* LayoutVC.swift in Sources */,
+				ECA0A7EF1B6C8C42005F318F /* CreateVC.swift in Sources */,
 				ECA0A7ED1B6C7037005F318F /* TextVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

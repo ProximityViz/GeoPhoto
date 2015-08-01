@@ -8,6 +8,7 @@
 
 import UIKit
 import CoreLocation
+import MapKit
 
 // image
 // image center
@@ -30,14 +31,15 @@ class Image {
     
     static let sharedInstance = Image()
     
-    var markerCoordinates:CLLocationCoordinate2D!
-    var mapCenter:CLLocation!
-    var mapZoom:Int = 0
     var title:String = ""
     var font:String = ""
     var fontFace:String = ""
     var fontWeight:String = ""
+    
     var image:UIImage!
+    
+    var markerCoordinates:CLLocationCoordinate2D!
+    var mapRegion:MKCoordinateRegion!
     
     private init() {
         println(__FUNCTION__)

@@ -20,7 +20,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="fsd-VS-Y2N">
-                                <rect key="frame" x="0.0" y="64" width="600" height="536"/>
+                                <rect key="frame" x="0.0" y="134" width="600" height="466"/>
                             </mapView>
                             <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jfo-Uz-Nlg">
                                 <rect key="frame" x="0.0" y="20" width="600" height="44"/>
@@ -42,15 +42,25 @@
                                     </navigationItem>
                                 </items>
                             </navigationBar>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LZt-LU-Syi">
+                                <rect key="frame" x="16" y="83" width="568" height="30"/>
+                                <state key="normal" title="Select map marker">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstAttribute="centerX" secondItem="LZt-LU-Syi" secondAttribute="centerX" id="5k4-nv-lFR"/>
                             <constraint firstAttribute="trailing" secondItem="fsd-VS-Y2N" secondAttribute="trailing" id="9TF-4d-U9m"/>
                             <constraint firstItem="y81-Fd-ePY" firstAttribute="top" secondItem="fsd-VS-Y2N" secondAttribute="bottom" id="A9M-ZZ-v1h"/>
                             <constraint firstItem="jfo-Uz-Nlg" firstAttribute="top" secondItem="5Wu-8N-Kve" secondAttribute="bottom" id="LF2-jE-dwI"/>
-                            <constraint firstItem="fsd-VS-Y2N" firstAttribute="top" secondItem="jfo-Uz-Nlg" secondAttribute="bottom" id="MwM-La-8KY"/>
+                            <constraint firstItem="fsd-VS-Y2N" firstAttribute="top" secondItem="jfo-Uz-Nlg" secondAttribute="bottom" constant="70" id="MwM-La-8KY"/>
+                            <constraint firstItem="LZt-LU-Syi" firstAttribute="top" secondItem="jfo-Uz-Nlg" secondAttribute="bottom" constant="19" id="OKL-cz-oMG"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="LZt-LU-Syi" secondAttribute="trailing" id="YCe-K7-8Pl"/>
                             <constraint firstItem="fsd-VS-Y2N" firstAttribute="top" secondItem="5Wu-8N-Kve" secondAttribute="bottom" id="aF8-rM-zl5"/>
                             <constraint firstItem="fsd-VS-Y2N" firstAttribute="leading" secondItem="DM5-aH-wss" secondAttribute="leading" id="aVP-wS-zsL"/>
+                            <constraint firstItem="LZt-LU-Syi" firstAttribute="leading" secondItem="DM5-aH-wss" secondAttribute="leadingMargin" id="fcU-Js-Qw1"/>
                             <constraint firstAttribute="trailing" secondItem="jfo-Uz-Nlg" secondAttribute="trailing" id="k04-BC-sbf"/>
                             <constraint firstItem="jfo-Uz-Nlg" firstAttribute="leading" secondItem="DM5-aH-wss" secondAttribute="leading" id="toW-Hf-XuQ"/>
                         </constraints>
@@ -121,12 +131,11 @@
                                         <rect key="frame" x="8" y="8" width="552" height="292"/>
                                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                     </imageView>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="eGu-iJ-Irm">
+                                    <mapView clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="scaleToFill" mapType="standard" zoomEnabled="NO" scrollEnabled="NO" rotateEnabled="NO" pitchEnabled="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UZS-Lq-ZTV">
                                         <rect key="frame" x="8" y="308" width="552" height="146"/>
-                                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                                    </imageView>
+                                    </mapView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2ky-y3-RPh">
-                                        <rect key="frame" x="0.0" y="132" width="568" height="44"/>
+                                        <rect key="frame" x="0.0" y="60" width="568" height="240"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="200" id="45Q-iT-Mez"/>
                                             <constraint firstAttribute="height" constant="44" id="xfw-ZM-9SD"/>
@@ -137,6 +146,7 @@
                                         <variation key="default">
                                             <mask key="constraints">
                                                 <exclude reference="45Q-iT-Mez"/>
+                                                <exclude reference="xfw-ZM-9SD"/>
                                             </mask>
                                         </variation>
                                         <connections>
@@ -144,9 +154,9 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8oi-y3-cMc">
-                                        <rect key="frame" x="0.0" y="359" width="568" height="44"/>
+                                        <rect key="frame" x="0.0" y="308" width="568" height="146"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="44" id="glA-mG-DBm"/>
+                                            <constraint firstAttribute="height" constant="146" id="glA-mG-DBm"/>
                                             <constraint firstAttribute="width" constant="200" id="lbX-ds-9JE"/>
                                         </constraints>
                                         <state key="normal" title="Choose Map">
@@ -154,6 +164,7 @@
                                         </state>
                                         <variation key="default">
                                             <mask key="constraints">
+                                                <exclude reference="glA-mG-DBm"/>
                                                 <exclude reference="lbX-ds-9JE"/>
                                             </mask>
                                         </variation>
@@ -196,30 +207,40 @@
                                 </subviews>
                                 <color key="backgroundColor" red="0.98431372549999996" green="0.86666666670000003" blue="0.56862745100000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="trailing" secondItem="eGu-iJ-Irm" secondAttribute="trailing" constant="8" id="4LH-Zg-dGP"/>
-                                    <constraint firstAttribute="bottom" secondItem="eGu-iJ-Irm" secondAttribute="bottom" constant="8" id="5Nh-5H-WvP"/>
+                                    <constraint firstItem="2ky-y3-RPh" firstAttribute="top" secondItem="g3u-jt-vIR" secondAttribute="bottom" constant="8" id="3Pb-r9-HQa"/>
                                     <constraint firstAttribute="trailing" secondItem="8oi-y3-cMc" secondAttribute="trailing" id="65e-Ha-Uj1"/>
                                     <constraint firstItem="Bhx-xi-z4b" firstAttribute="leading" secondItem="f4S-Ac-NGg" secondAttribute="leading" constant="16" id="6IH-41-Sdh"/>
                                     <constraint firstItem="2ky-y3-RPh" firstAttribute="centerX" secondItem="hxi-gK-NE5" secondAttribute="centerX" id="7b9-Hh-8lp"/>
-                                    <constraint firstItem="eGu-iJ-Irm" firstAttribute="height" secondItem="hxi-gK-NE5" secondAttribute="height" multiplier="0.5" id="AeN-HP-7ZZ"/>
                                     <constraint firstAttribute="trailing" secondItem="g3u-jt-vIR" secondAttribute="trailing" id="Eky-NW-UeI"/>
+                                    <constraint firstItem="8oi-y3-cMc" firstAttribute="centerY" secondItem="UZS-Lq-ZTV" secondAttribute="centerY" id="FaD-Pn-MrF"/>
                                     <constraint firstItem="2ky-y3-RPh" firstAttribute="leading" secondItem="f4S-Ac-NGg" secondAttribute="leading" id="GtH-OC-vnl"/>
-                                    <constraint firstItem="2ky-y3-RPh" firstAttribute="centerY" secondItem="hxi-gK-NE5" secondAttribute="centerY" id="H6r-2Y-wpk"/>
+                                    <constraint firstItem="2ky-y3-RPh" firstAttribute="centerY" secondItem="hxi-gK-NE5" secondAttribute="centerY" constant="26" id="H6r-2Y-wpk"/>
+                                    <constraint firstAttribute="trailing" secondItem="UZS-Lq-ZTV" secondAttribute="trailing" constant="8" id="IGj-DH-ZVM"/>
+                                    <constraint firstAttribute="bottom" secondItem="UZS-Lq-ZTV" secondAttribute="bottom" constant="8" id="JrK-pM-Nvy"/>
                                     <constraint firstItem="8oi-y3-cMc" firstAttribute="leading" secondItem="f4S-Ac-NGg" secondAttribute="leading" id="Net-n7-JSB"/>
                                     <constraint firstItem="Bhx-xi-z4b" firstAttribute="top" secondItem="f4S-Ac-NGg" secondAttribute="top" constant="16" id="NqX-dm-7XW"/>
-                                    <constraint firstItem="eGu-iJ-Irm" firstAttribute="top" secondItem="hxi-gK-NE5" secondAttribute="bottom" constant="8" id="Q8M-Rb-Jyl"/>
-                                    <constraint firstItem="8oi-y3-cMc" firstAttribute="centerX" secondItem="eGu-iJ-Irm" secondAttribute="centerX" id="Zbm-ip-QPG"/>
+                                    <constraint firstItem="UZS-Lq-ZTV" firstAttribute="centerX" secondItem="8oi-y3-cMc" secondAttribute="centerX" id="QIO-WY-T8O"/>
                                     <constraint firstAttribute="trailing" secondItem="2ky-y3-RPh" secondAttribute="trailing" id="aIC-M0-4BR"/>
+                                    <constraint firstItem="UZS-Lq-ZTV" firstAttribute="leading" secondItem="f4S-Ac-NGg" secondAttribute="leading" constant="8" id="dVl-Uv-qPE"/>
+                                    <constraint firstItem="UZS-Lq-ZTV" firstAttribute="height" secondItem="hxi-gK-NE5" secondAttribute="height" multiplier="0.5" id="dxW-F3-0QN"/>
+                                    <constraint firstAttribute="bottom" secondItem="8oi-y3-cMc" secondAttribute="bottom" constant="8" id="eAo-yC-FnP"/>
                                     <constraint firstAttribute="trailing" secondItem="Bhx-xi-z4b" secondAttribute="trailing" constant="16" id="ikX-OJ-eLb"/>
                                     <constraint firstItem="hxi-gK-NE5" firstAttribute="leading" secondItem="f4S-Ac-NGg" secondAttribute="leading" constant="8" id="izt-dI-OEJ"/>
                                     <constraint firstItem="hxi-gK-NE5" firstAttribute="top" secondItem="f4S-Ac-NGg" secondAttribute="top" constant="8" id="lRX-Tg-RCu"/>
                                     <constraint firstItem="g3u-jt-vIR" firstAttribute="top" secondItem="f4S-Ac-NGg" secondAttribute="top" constant="8" id="nfj-AK-H6O"/>
-                                    <constraint firstItem="eGu-iJ-Irm" firstAttribute="leading" secondItem="f4S-Ac-NGg" secondAttribute="leading" constant="8" id="qqT-EA-1qK"/>
+                                    <constraint firstItem="8oi-y3-cMc" firstAttribute="top" secondItem="2ky-y3-RPh" secondAttribute="bottom" constant="8" id="qtQ-DE-nSR"/>
                                     <constraint firstAttribute="centerX" secondItem="g3u-jt-vIR" secondAttribute="centerX" id="r79-kC-Xei"/>
-                                    <constraint firstItem="8oi-y3-cMc" firstAttribute="centerY" secondItem="eGu-iJ-Irm" secondAttribute="centerY" id="rsH-5d-SKu"/>
                                     <constraint firstItem="g3u-jt-vIR" firstAttribute="leading" secondItem="f4S-Ac-NGg" secondAttribute="leading" id="ti6-Hf-0hQ"/>
+                                    <constraint firstItem="UZS-Lq-ZTV" firstAttribute="top" secondItem="hxi-gK-NE5" secondAttribute="bottom" constant="8" id="vYp-xO-ibe"/>
                                     <constraint firstAttribute="trailing" secondItem="hxi-gK-NE5" secondAttribute="trailing" constant="8" id="xUx-oE-oFS"/>
+                                    <constraint firstItem="UZS-Lq-ZTV" firstAttribute="top" secondItem="2ky-y3-RPh" secondAttribute="bottom" constant="8" id="xjX-l8-ws9"/>
                                 </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="7b9-Hh-8lp"/>
+                                        <exclude reference="QIO-WY-T8O"/>
+                                    </mask>
+                                </variation>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="19b-lu-Z5A">
                                 <rect key="frame" x="248" y="550" width="104" height="30"/>
@@ -260,7 +281,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="mapButton" destination="8oi-y3-cMc" id="cKW-Vv-DWL"/>
-                        <outlet property="mapImageView" destination="eGu-iJ-Irm" id="Lqz-e1-MaR"/>
+                        <outlet property="mapView" destination="UZS-Lq-ZTV" id="KqU-uO-O2N"/>
                         <outlet property="photoButton" destination="2ky-y3-RPh" id="ivx-Iq-CqP"/>
                         <outlet property="photoImageView" destination="hxi-gK-NE5" id="1T5-Rs-Dui"/>
                         <outlet property="titleButton" destination="g3u-jt-vIR" id="TKd-LA-14b"/>

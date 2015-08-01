@@ -17,6 +17,8 @@ class MapVC: UIViewController, MKMapViewDelegate, UINavigationControllerDelegate
     @IBOutlet weak var mapView: MKMapView!
     
     var manager:CLLocationManager!
+    var markerCoordinates:CLLocationCoordinate2D!
+    var locationNeedsUpdating = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,6 +36,8 @@ class MapVC: UIViewController, MKMapViewDelegate, UINavigationControllerDelegate
         manager.requestWhenInUseAuthorization()
         manager.startUpdatingLocation()
         
+        locationNeedsUpdating = true
+        
 //        recenterMap(userLocation) // or photo location
         
     }
@@ -45,23 +49,21 @@ class MapVC: UIViewController, MKMapViewDelegate, UINavigationControllerDelegate
     }
     
     func recenterMap(location: CLLocation) {
-        let spanX = 0.007
-        let spanY = 0.007
+        let spanX = 0.014
+        let spanY = 0.014
         var newRegion = MKCoordinateRegion(center: location.coordinate, span: MKCoordinateSpanMake(spanX, spanY))
         mapView.setRegion(newRegion, animated: false)
-        
-//        mapView.showsUserLocation = true
-//        mapView.userLocationVisible
-//        mapView.userLocation.title = "You Are Here"
         
         let annotation = MKPointAnnotation()
         annotation.coordinate = location.coordinate
         annotation.title = "Drag Me!"
+        markerCoordinates = location.coordinate
         
+        mapView.removeAnnotations(mapView.annotations)
         mapView.addAnnotation(annotation)
         
-        // recenter map
-        mapView.showAnnotations(mapView.annotations, animated: true)
+//        // recenter map
+//        mapView.showAnnotations(mapView.annotations, animated: true)
     }
     
     func mapView(mapView: MKMapView!, viewForAnnotation annotation: MKAnnotation!) -> MKAnnotationView! {
@@ -75,7 +77,7 @@ class MapVC: UIViewController, MKMapViewDelegate, UINavigationControllerDelegate
     }
     
     func mapView(mapView: MKMapView!, annotationView view: MKAnnotationView!, didChangeDragState newState: MKAnnotationViewDragState, fromOldState oldState: MKAnnotationViewDragState) {
-        Image.sharedInstance.markerCoordinates = view.annotation.coordinate
+        markerCoordinates = view.annotation.coordinate
         switch (newState) {
         case .Starting:
             view.dragState = .Dragging
@@ -86,25 +88,18 @@ class MapVC: UIViewController, MKMapViewDelegate, UINavigationControllerDelegate
         }
     }
     
-    @IBAction func doneButtonPressed(sender: AnyObject) {
-        dismissViewControllerAnimated(true, completion: nil)
-    }
-    
-    @IBAction func cancelButtonPressed(sender: AnyObject) {
-        dismissViewControllerAnimated(true, completion: nil)
-    }
-    
     // MARK: Geolocation
     func locationManager(manager: CLLocationManager!, didUpdateLocations locations: [AnyObject]!) {
         
         userLocation = locations.last as! CLLocation
-        println(userLocation)
         
-        //        // don't move map except when needed
-        //        let mapCenter = CLLocation(latitude: mapView.centerCoordinate.latitude, longitude: mapView.centerCoordinate.longitude)
-        //        if locationNeedsUpdating == true || userLocation.distanceFromLocation(mapCenter) > 1000 {
-        //            recenterMap(userLocation)
-        //        }
+        // don't move map except when needed
+        let mapCenter = CLLocation(latitude: mapView.centerCoordinate.latitude, longitude: mapView.centerCoordinate.longitude)
+        if locationNeedsUpdating == true || userLocation.distanceFromLocation(mapCenter) > 1000 {
+            recenterMap(userLocation)
+        }
+        
+        locationNeedsUpdating = false
         
     }
     
@@ -114,16 +109,16 @@ class MapVC: UIViewController, MKMapViewDelegate, UINavigationControllerDelegate
         
     }
     
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    @IBAction func doneButtonPressed(sender: AnyObject) {
+        dismissViewControllerAnimated(true, completion: nil)
+        
+        Image.sharedInstance.markerCoordinates = markerCoordinates
+        Image.sharedInstance.mapRegion = mapView.region
     }
-    */
+    
+    @IBAction func cancelButtonPressed(sender: AnyObject) {
+        dismissViewControllerAnimated(true, completion: nil)
+    }
+    
 
 }

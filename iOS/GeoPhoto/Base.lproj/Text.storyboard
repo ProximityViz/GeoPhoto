@@ -54,7 +54,11 @@
                                 </constraints>
                                 <items>
                                     <navigationItem title="Title" id="iZI-aJ-HfT">
-                                        <barButtonItem key="leftBarButtonItem" style="plain" systemItem="cancel" id="bsV-rk-Vsv"/>
+                                        <barButtonItem key="leftBarButtonItem" style="plain" systemItem="cancel" id="bsV-rk-Vsv">
+                                            <connections>
+                                                <action selector="cancelPressed:" destination="0SA-bQ-PFL" id="dy2-Ml-ZCh"/>
+                                            </connections>
+                                        </barButtonItem>
                                         <barButtonItem key="rightBarButtonItem" style="done" systemItem="done" id="pQq-G3-GCi">
                                             <connections>
                                                 <action selector="donePressed:" destination="0SA-bQ-PFL" id="y5m-97-jaf"/>

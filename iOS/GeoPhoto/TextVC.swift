@@ -66,10 +66,13 @@ class TextVC: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate {
     
     @IBAction func donePressed(sender: AnyObject) {
         Image.sharedInstance.title = titleField.text
-        println(Image.sharedInstance.title)
         dismissViewControllerAnimated(true, completion: nil)
     }
     
+    @IBAction func cancelPressed(sender: AnyObject) {
+        dismissViewControllerAnimated(true, completion: nil)
+        
+    }
 
     /*
     // MARK: - Navigation

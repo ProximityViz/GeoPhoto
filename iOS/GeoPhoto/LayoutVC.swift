@@ -7,20 +7,22 @@
 //
 
 import UIKit
+import MapKit
 
-class LayoutVC: UIViewController {
+class LayoutVC: UIViewController, MKMapViewDelegate {
     
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var titleButton: UIButton!
     @IBOutlet weak var photoButton: UIButton!
     @IBOutlet weak var mapButton: UIButton!
     @IBOutlet weak var photoImageView: UIImageView!
-    @IBOutlet weak var mapImageView: UIImageView!
+    @IBOutlet weak var mapView: MKMapView!
     
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        mapView.delegate = self
         
     }
     
@@ -45,6 +47,18 @@ class LayoutVC: UIViewController {
         
         photoImageView.image = Image.sharedInstance.image
         toggleButtonTitle(photoButton, buttonShownText: "Choose Photo", hide: Image.sharedInstance.image != nil)
+        
+        // storyboard makes map unslippy
+        mapView.removeAnnotations(mapView.annotations)
+        if (Image.sharedInstance.mapRegion != nil) {
+            mapView.setRegion(Image.sharedInstance.mapRegion, animated: false)
+            
+            let annotation = MKPointAnnotation()
+            annotation.coordinate = Image.sharedInstance.markerCoordinates
+            
+            mapView.addAnnotation(annotation)
+        }
+        toggleButtonTitle(mapButton, buttonShownText: "Choose Map", hide: Image.sharedInstance.mapRegion != nil)
     }
     
     @IBAction func layoutButtonTapped(sender: AnyObject) {

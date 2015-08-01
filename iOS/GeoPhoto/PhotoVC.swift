@@ -42,7 +42,6 @@ class PhotoVC: UIViewController, UIImagePickerControllerDelegate, UINavigationCo
         presentViewController(imagePicker, animated: true, completion: nil)
         
     }
-//    import CoreLocation
 //    
 //    let asset: AnyObject? = nil
 //    
@@ -77,8 +76,6 @@ class PhotoVC: UIViewController, UIImagePickerControllerDelegate, UINavigationCo
 //        info[UIImagePickerControllerMediaMetadata]
 //        PHAsset.fetchAssetsWithLocalIdentifiers(<#identifiers: [AnyObject]!#>, options: <#PHFetchOptions!#>)
         let asset = PHAsset.fetchAssetsWithALAssetURLs([imageURL], options: nil).lastObject as! PHAsset
-        println("location")
-        println(asset.location)
         
 //        var inputImage = CIImage(contentsOfURL: imageURL)
 //        
@@ -88,7 +85,8 @@ class PhotoVC: UIViewController, UIImagePickerControllerDelegate, UINavigationCo
 //        }
         
         var image = info[UIImagePickerControllerOriginalImage] as! UIImage
-        self.imageView.image = image
+        imageView.image = image
+        Image.sharedInstance.image = image
         
         picker.dismissViewControllerAnimated(true, completion: nil)
         

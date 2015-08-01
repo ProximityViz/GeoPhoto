@@ -24,18 +24,27 @@ class LayoutVC: UIViewController {
         
     }
     
+    func toggleButtonTitle(button: UIButton, buttonShownText: String, hide: Bool) {
+        
+        if hide {
+            // make button invisible but still clickable
+            button.setTitle("", forState: .Normal)
+            button.setTitle("", forState: .Highlighted)
+        } else {
+            button.setTitle(buttonShownText, forState: .Normal)
+            button.setTitle(buttonShownText, forState: .Highlighted)
+        }
+    }
+    
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(true)
         
-        if Image.sharedInstance.title == "" {
-            titleButton.setTitle("Choose Title", forState: .Normal)
-            titleButton.setTitle("Choose Title", forState: .Highlighted)
-        } else {
-            titleButton.setTitle("", forState: .Normal)
-            titleButton.setTitle("", forState: .Highlighted)
-        }
         titleLabel.text = Image.sharedInstance.title
         titleLabel.font = UIFont(name: Image.sharedInstance.font, size: 42.0)
+        toggleButtonTitle(titleButton, buttonShownText: "Choose Title", hide: Image.sharedInstance.title != "")
+        
+        photoImageView.image = Image.sharedInstance.image
+        toggleButtonTitle(photoButton, buttonShownText: "Choose Photo", hide: Image.sharedInstance.image != nil)
     }
     
     @IBAction func layoutButtonTapped(sender: AnyObject) {

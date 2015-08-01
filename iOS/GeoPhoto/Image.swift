@@ -6,6 +6,7 @@
 //  Copyright (c) 2015 Proximity Viz LLC. All rights reserved.
 //
 
+import UIKit
 import CoreLocation
 
 // image
@@ -36,6 +37,7 @@ class Image {
     var font:String = ""
     var fontFace:String = ""
     var fontWeight:String = ""
+    var image:UIImage!
     
     private init() {
         println(__FUNCTION__)

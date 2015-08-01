@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		ECA0A7EB1B6C6F82005F318F /* Text.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ECA0A7E91B6C6F82005F318F /* Text.storyboard */; };
+		ECA0A7ED1B6C7037005F318F /* TextVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECA0A7EC1B6C7037005F318F /* TextVC.swift */; };
+		ECA0A7EF1B6C8C42005F318F /* LayoutVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECA0A7EE1B6C8C42005F318F /* LayoutVC.swift */; };
 		ECA31C351B6C044C00D23B5A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECA31C341B6C044C00D23B5A /* AppDelegate.swift */; };
 		ECA31C3A1B6C044C00D23B5A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ECA31C381B6C044C00D23B5A /* Main.storyboard */; };
 		ECA31C3C1B6C044C00D23B5A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ECA31C3B1B6C044C00D23B5A /* Images.xcassets */; };
@@ -14,7 +17,7 @@
 		ECA31C4B1B6C044C00D23B5A /* GeoPhotoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECA31C4A1B6C044C00D23B5A /* GeoPhotoTests.swift */; };
 		ECA31C551B6C065300D23B5A /* PhotoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECA31C541B6C065300D23B5A /* PhotoVC.swift */; };
 		ECA31C571B6C1F8E00D23B5A /* MapVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECA31C561B6C1F8E00D23B5A /* MapVC.swift */; };
-		ECA31C591B6C1FF300D23B5A /* Photo.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECA31C581B6C1FF300D23B5A /* Photo.swift */; };
+		ECA31C591B6C1FF300D23B5A /* Image.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECA31C581B6C1FF300D23B5A /* Image.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -29,6 +32,9 @@
 
 /* Begin PBXFileReference section */
 		ECA0A7E71B6C4E58005F318F /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		ECA0A7EA1B6C6F82005F318F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = GeoPhoto/Base.lproj/Text.storyboard; sourceTree = "<group>"; };
+		ECA0A7EC1B6C7037005F318F /* TextVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextVC.swift; sourceTree = "<group>"; };
+		ECA0A7EE1B6C8C42005F318F /* LayoutVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LayoutVC.swift; sourceTree = "<group>"; };
 		ECA31C2F1B6C044C00D23B5A /* GeoPhoto.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GeoPhoto.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ECA31C331B6C044C00D23B5A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		ECA31C341B6C044C00D23B5A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -40,7 +46,7 @@
 		ECA31C4A1B6C044C00D23B5A /* GeoPhotoTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeoPhotoTests.swift; sourceTree = "<group>"; };
 		ECA31C541B6C065300D23B5A /* PhotoVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoVC.swift; sourceTree = "<group>"; };
 		ECA31C561B6C1F8E00D23B5A /* MapVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapVC.swift; sourceTree = "<group>"; };
-		ECA31C581B6C1FF300D23B5A /* Photo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Photo.swift; sourceTree = "<group>"; };
+		ECA31C581B6C1FF300D23B5A /* Image.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Image.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,11 +89,14 @@
 		ECA31C311B6C044C00D23B5A /* GeoPhoto */ = {
 			isa = PBXGroup;
 			children = (
-				ECA31C581B6C1FF300D23B5A /* Photo.swift */,
+				ECA31C581B6C1FF300D23B5A /* Image.swift */,
 				ECA31C341B6C044C00D23B5A /* AppDelegate.swift */,
+				ECA0A7EE1B6C8C42005F318F /* LayoutVC.swift */,
 				ECA31C541B6C065300D23B5A /* PhotoVC.swift */,
 				ECA31C561B6C1F8E00D23B5A /* MapVC.swift */,
 				ECA31C381B6C044C00D23B5A /* Main.storyboard */,
+				ECA0A7EC1B6C7037005F318F /* TextVC.swift */,
+				ECA0A7E91B6C6F82005F318F /* Text.storyboard */,
 				ECA31C3B1B6C044C00D23B5A /* Images.xcassets */,
 				ECA31C3D1B6C044C00D23B5A /* LaunchScreen.xib */,
 				ECA31C321B6C044C00D23B5A /* Supporting Files */,
@@ -204,6 +213,7 @@
 				ECA31C3A1B6C044C00D23B5A /* Main.storyboard in Resources */,
 				ECA31C3F1B6C044C00D23B5A /* LaunchScreen.xib in Resources */,
 				ECA31C3C1B6C044C00D23B5A /* Images.xcassets in Resources */,
+				ECA0A7EB1B6C6F82005F318F /* Text.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -221,10 +231,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				ECA31C591B6C1FF300D23B5A /* Photo.swift in Sources */,
+				ECA31C591B6C1FF300D23B5A /* Image.swift in Sources */,
 				ECA31C351B6C044C00D23B5A /* AppDelegate.swift in Sources */,
 				ECA31C571B6C1F8E00D23B5A /* MapVC.swift in Sources */,
 				ECA31C551B6C065300D23B5A /* PhotoVC.swift in Sources */,
+				ECA0A7EF1B6C8C42005F318F /* LayoutVC.swift in Sources */,
+				ECA0A7ED1B6C7037005F318F /* TextVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -247,6 +259,15 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		ECA0A7E91B6C6F82005F318F /* Text.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				ECA0A7EA1B6C6F82005F318F /* Base */,
+			);
+			name = Text.storyboard;
+			path = ..;
+			sourceTree = "<group>";
+		};
 		ECA31C381B6C044C00D23B5A /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (

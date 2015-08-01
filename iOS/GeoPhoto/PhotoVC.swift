@@ -8,16 +8,10 @@
 
 import UIKit
 import Photos
-import CoreLocation
 
-// maybe moved this?
-var userLocation:CLLocation!
-
-class PhotoVC: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, CLLocationManagerDelegate {
+class PhotoVC: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     @IBOutlet weak var imageView: UIImageView!
-    
-    var manager:CLLocationManager!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,18 +21,6 @@ class PhotoVC: UIViewController, UIImagePickerControllerDelegate, UINavigationCo
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(true)
-        
-        manager = CLLocationManager()
-        manager.delegate = self
-        manager.desiredAccuracy = kCLLocationAccuracyBest
-        manager.requestWhenInUseAuthorization()
-        manager.startUpdatingLocation()
-    }
-    
-    override func viewWillDisappear(animated: Bool) {
-        super.viewWillDisappear(true)
-        
-        manager.stopUpdatingLocation()
     }
     
     @IBAction func openPhotoLibrary(sender: AnyObject) {
@@ -168,26 +150,6 @@ class PhotoVC: UIViewController, UIImagePickerControllerDelegate, UINavigationCo
 //        }
         
         dismissViewControllerAnimated(true, completion: nil)
-        
-    }
-    
-    // MARK: Geolocation
-    func locationManager(manager: CLLocationManager!, didUpdateLocations locations: [AnyObject]!) {
-        
-        userLocation = locations.last as! CLLocation
-        println(userLocation)
-        
-//        // don't move map except when needed
-//        let mapCenter = CLLocation(latitude: mapView.centerCoordinate.latitude, longitude: mapView.centerCoordinate.longitude)
-//        if locationNeedsUpdating == true || userLocation.distanceFromLocation(mapCenter) > 1000 {
-//            recenterMap(userLocation)
-//        }
-        
-    }
-    
-    func locationManager(manager: CLLocationManager!, didFailWithError error: NSError!) {
-        
-        println(error)
         
     }
     

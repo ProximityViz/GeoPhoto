@@ -8,22 +8,40 @@
 
 import UIKit
 import MapKit
+import CoreLocation
 
-class MapVC: UIViewController, MKMapViewDelegate {
+var userLocation:CLLocation!
+
+class MapVC: UIViewController, MKMapViewDelegate, UINavigationControllerDelegate, CLLocationManagerDelegate {
 
     @IBOutlet weak var mapView: MKMapView!
+    
+    var manager:CLLocationManager!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         mapView.delegate = self
+        
     }
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(true)
         
-        recenterMap(userLocation) // or photo location
+        manager = CLLocationManager()
+        manager.delegate = self
+        manager.desiredAccuracy = kCLLocationAccuracyBest
+        manager.requestWhenInUseAuthorization()
+        manager.startUpdatingLocation()
         
+//        recenterMap(userLocation) // or photo location
+        
+    }
+    
+    override func viewWillDisappear(animated: Bool) {
+        super.viewWillDisappear(true)
+        
+        manager.stopUpdatingLocation()
     }
     
     func recenterMap(location: CLLocation) {
@@ -57,14 +75,45 @@ class MapVC: UIViewController, MKMapViewDelegate {
     }
     
     func mapView(mapView: MKMapView!, annotationView view: MKAnnotationView!, didChangeDragState newState: MKAnnotationViewDragState, fromOldState oldState: MKAnnotationViewDragState) {
+        Image.sharedInstance.markerCoordinates = view.annotation.coordinate
         switch (newState) {
         case .Starting:
             view.dragState = .Dragging
         case .Ending, .Canceling:
             view.dragState = .None
+            println(view)
         default: break
         }
     }
+    
+    @IBAction func doneButtonPressed(sender: AnyObject) {
+        dismissViewControllerAnimated(true, completion: nil)
+    }
+    
+    @IBAction func cancelButtonPressed(sender: AnyObject) {
+        dismissViewControllerAnimated(true, completion: nil)
+    }
+    
+    // MARK: Geolocation
+    func locationManager(manager: CLLocationManager!, didUpdateLocations locations: [AnyObject]!) {
+        
+        userLocation = locations.last as! CLLocation
+        println(userLocation)
+        
+        //        // don't move map except when needed
+        //        let mapCenter = CLLocation(latitude: mapView.centerCoordinate.latitude, longitude: mapView.centerCoordinate.longitude)
+        //        if locationNeedsUpdating == true || userLocation.distanceFromLocation(mapCenter) > 1000 {
+        //            recenterMap(userLocation)
+        //        }
+        
+    }
+    
+    func locationManager(manager: CLLocationManager!, didFailWithError error: NSError!) {
+        
+        println(error)
+        
+    }
+    
     
 
     /*

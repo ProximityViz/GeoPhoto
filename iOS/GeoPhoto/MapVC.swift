@@ -15,8 +15,8 @@ class MapVC: UIViewController, MKMapViewDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        
+        mapView.delegate = self
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -32,9 +32,38 @@ class MapVC: UIViewController, MKMapViewDelegate {
         var newRegion = MKCoordinateRegion(center: location.coordinate, span: MKCoordinateSpanMake(spanX, spanY))
         mapView.setRegion(newRegion, animated: false)
         
-        mapView.showsUserLocation = true
-        mapView.userLocationVisible
-        mapView.userLocation.title = "You Are Here"
+//        mapView.showsUserLocation = true
+//        mapView.userLocationVisible
+//        mapView.userLocation.title = "You Are Here"
+        
+        let annotation = MKPointAnnotation()
+        annotation.coordinate = location.coordinate
+        annotation.title = "Drag Me!"
+        
+        mapView.addAnnotation(annotation)
+        
+        // recenter map
+        mapView.showAnnotations(mapView.annotations, animated: true)
+    }
+    
+    func mapView(mapView: MKMapView!, viewForAnnotation annotation: MKAnnotation!) -> MKAnnotationView! {
+        
+        var pinView = MKPinAnnotationView(annotation: annotation, reuseIdentifier: "pin")
+        pinView.canShowCallout = true
+        pinView.draggable = true
+        
+        return pinView
+        
+    }
+    
+    func mapView(mapView: MKMapView!, annotationView view: MKAnnotationView!, didChangeDragState newState: MKAnnotationViewDragState, fromOldState oldState: MKAnnotationViewDragState) {
+        switch (newState) {
+        case .Starting:
+            view.dragState = .Dragging
+        case .Ending, .Canceling:
+            view.dragState = .None
+        default: break
+        }
     }
     
 

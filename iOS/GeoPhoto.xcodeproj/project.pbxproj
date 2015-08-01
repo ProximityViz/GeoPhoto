@@ -28,6 +28,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		ECA0A7E71B6C4E58005F318F /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		ECA31C2F1B6C044C00D23B5A /* GeoPhoto.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GeoPhoto.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ECA31C331B6C044C00D23B5A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		ECA31C341B6C044C00D23B5A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -63,6 +64,7 @@
 		ECA31C261B6C044C00D23B5A = {
 			isa = PBXGroup;
 			children = (
+				ECA0A7E71B6C4E58005F318F /* CoreLocation.framework */,
 				ECA31C311B6C044C00D23B5A /* GeoPhoto */,
 				ECA31C471B6C044C00D23B5A /* GeoPhotoTests */,
 				ECA31C301B6C044C00D23B5A /* Products */,

@@ -10,25 +10,35 @@ import UIKit
 import Photos
 import CoreLocation
 
-// move inside class, if this doesn't get used in other class(es)
-var manager:CLLocationManager!
+// maybe moved this?
+var userLocation:CLLocation!
 
 class PhotoVC: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, CLLocationManagerDelegate {
     
     @IBOutlet weak var imageView: UIImageView!
     
-    override func awakeFromNib() {
-        manager = CLLocationManager()
-        manager.delegate = self
-        manager.desiredAccuracy = kCLLocationAccuracyBest
-        manager.requestAlwaysAuthorization()
-        manager.startUpdatingLocation()
-    }
+    var manager:CLLocationManager!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(true)
+        
+        manager = CLLocationManager()
+        manager.delegate = self
+        manager.desiredAccuracy = kCLLocationAccuracyBest
+        manager.requestWhenInUseAuthorization()
+        manager.startUpdatingLocation()
+    }
+    
+    override func viewWillDisappear(animated: Bool) {
+        super.viewWillDisappear(true)
+        
+        manager.stopUpdatingLocation()
     }
     
     @IBAction func openPhotoLibrary(sender: AnyObject) {
@@ -158,6 +168,26 @@ class PhotoVC: UIViewController, UIImagePickerControllerDelegate, UINavigationCo
 //        }
         
         dismissViewControllerAnimated(true, completion: nil)
+        
+    }
+    
+    // MARK: Geolocation
+    func locationManager(manager: CLLocationManager!, didUpdateLocations locations: [AnyObject]!) {
+        
+        userLocation = locations.last as! CLLocation
+        println(userLocation)
+        
+//        // don't move map except when needed
+//        let mapCenter = CLLocation(latitude: mapView.centerCoordinate.latitude, longitude: mapView.centerCoordinate.longitude)
+//        if locationNeedsUpdating == true || userLocation.distanceFromLocation(mapCenter) > 1000 {
+//            recenterMap(userLocation)
+//        }
+        
+    }
+    
+    func locationManager(manager: CLLocationManager!, didFailWithError error: NSError!) {
+        
+        println(error)
         
     }
     
